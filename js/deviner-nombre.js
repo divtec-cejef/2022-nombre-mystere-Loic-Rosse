@@ -1,8 +1,8 @@
 /**
 * Jeu du nombre mystère
-* @author  Steve Fallet
+* @author  Loïc Rossé
 * @version 0.1
-* @since   2018-09-09 (date de création)
+* @since   2022-08-30
 */
 
 // Main IIFE (Immediately-Invoked Function Expression, se prononce "iffy")
@@ -18,5 +18,41 @@
     function tireNombre(min, max) {
         return Math.floor(Math.random() * (max - min) + min);
     }
+
+    // Déclaration
+    let nbMystere = 0;
+    let nbEssais = 0;
+    let reponse = 0;
+    let message = 0;
+
+    nbMystere = tireNombre(1,100);
+
+    do {
+        reponse = parseInt(prompt('Entrez un nombre entre 1 et 100 !'));
+        nbEssais++;
+
+        // Série de test
+        if (reponse > nbMystere){
+            alert('Cest moins');
+        }
+
+        if (reponse < nbMystere) {
+            alert('Cest plus');
+        }
+
+        if (reponse === nbMystere) {
+            message = `Vous avez trouvé après ${nbEssais} essais`;
+            alert(message);
+        }
+    }while (reponse !== nbMystere);
+
+
+
+
+
+
+
+
+
 
 }()); // main IIFE
