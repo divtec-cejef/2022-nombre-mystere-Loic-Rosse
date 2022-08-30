@@ -20,39 +20,32 @@
     }
 
     // Déclaration
+    const MIN = 1;
+    const MAX = 100;
     let nbMystere = 0;
     let nbEssais = 0;
     let reponse = 0;
-    let message = 0;
+    let message = `Entrez un nombre entre ${MIN} et ${MAX} !`;
 
-    nbMystere = tireNombre(1,100);
+
+    nbMystere = tireNombre(MIN,MAX);
 
     do {
-        reponse = parseInt(prompt('Entrez un nombre entre 1 et 100 !'));
+        reponse = parseInt(prompt(message));
         nbEssais++;
 
         // Série de test
         if (reponse > nbMystere){
-            alert('Cest moins');
+            message = 'C\'est moins';
         }
 
         if (reponse < nbMystere) {
-            alert('Cest plus');
+            message = 'C\'est plus';
         }
 
-        if (reponse === nbMystere) {
-            message = `Vous avez trouvé après ${nbEssais} essais`;
-            alert(message);
-        }
     }while (reponse !== nbMystere);
 
-
-
-
-
-
-
-
-
+        message = `Vous avez trouvé après ${nbEssais} essais`;
+        alert(message);
 
 }()); // main IIFE
